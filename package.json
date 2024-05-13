@@ -1,0 +1,26 @@
+{
+  "name": "@xtools-at/aethir-bulk-setup",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsc-watch --onSuccess \"pnpm start\"",
+    "build": "tsc",
+    "start": "node ./dist/index.js"
+  },
+  "author": "xtools-at",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@types/node": "^20.12.11",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "tsc-watch": "^6.2.0",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=8"
+  },
+  "dependencies": {
+    "viem": "^2.10.5"
+  }
+}

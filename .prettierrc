@@ -1,0 +1,10 @@
+{
+  "printWidth": 100,
+  "semi": true,
+  "arrowParens": "avoid",
+  "singleQuote": true,
+  "trailingComma": "all",
+  "bracketSameLine": false,
+  "plugins": ["prettier-plugin-organize-imports"],
+  "organizeImportsSkipDestructiveCodeActions": true
+}
