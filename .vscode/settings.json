@@ -4,9 +4,6 @@
   "eslint.validate": ["javascript", "javascriptreact", "vue", "typescript", "typescriptreact"],
   "typescript.tsdk": "node_modules/typescript/lib",
   "json.format.enable": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
   "search.exclude": {
     "**/.git": true,
     "**/node_modules": true,
@@ -15,5 +12,5 @@
     "**/.yarn": true,
     "**/cypress/reports": true
   },
-  "cSpell.ignoreWords": ["arbitrum", "sepolia", "multicall", "viem"]
+  "cSpell.ignoreWords": ["aethir", "arbitrum", "sepolia", "multicall", "viem"]
 }

@@ -6,12 +6,13 @@ import {
   type Abi,
   type Address,
   type Chain,
-  type PublicClient,
   type WalletClient,
 } from 'viem';
 import { mnemonicToAccount, privateKeyToAccount } from 'viem/accounts';
 import { arbitrum, arbitrumSepolia } from 'viem/chains';
 import checkerLicenseNftAbi from '../abi/CheckerLicenseNFT';
+
+export const isTestnet = process.env.TESTNET && Number(process.env.TESTNET) === 1;
 
 export const getClient = (viemChain?: Chain) => {
   if (!process.env.MNEMONIC && !process.env.PRIVATE_KEY) {
@@ -22,7 +23,7 @@ export const getClient = (viemChain?: Chain) => {
     ? mnemonicToAccount(process.env.MNEMONIC)
     : privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
 
-  const chain = viemChain || (process.env.TESTNET ? arbitrumSepolia : arbitrum);
+  const chain = viemChain || (isTestnet ? arbitrumSepolia : arbitrum);
 
   const client = createWalletClient({
     account,
@@ -36,15 +37,16 @@ export const getClient = (viemChain?: Chain) => {
 
 export const getContractInstance = (
   contractAddress: Address,
-  client?: WalletClient & PublicClient,
+  client?: WalletClient,
   viemAbi?: Abi,
 ) => {
   const abi = viemAbi || checkerLicenseNftAbi;
+  const extendedClient = client?.extend(publicActions) || getClient();
 
   const contract = getContract({
     address: contractAddress,
     abi,
-    client: client || getClient(),
+    client: { public: extendedClient, wallet: extendedClient },
   });
 
   return contract;

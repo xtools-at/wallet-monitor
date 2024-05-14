@@ -2,6 +2,7 @@ node_modules
 .next
 dist/
 coverage
+data*.csv
 
 .yarn/*
 !.yarn/patches
