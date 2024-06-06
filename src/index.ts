@@ -16,7 +16,7 @@ const main = () => {
     const host = process.env.HOST || '0.0.0.0';
     const port = (process.env.PORT && Number(process.env.PORT)) || 8080;
     const server = http.createServer((req, res) => res.end());
-    server.listen(port, host, () => console.log(`server running on ${host}:${port}`));
+    server.listen(port, host, () => console.log(`Server running on ${host}:${port}...\n`));
   }
 };
 
