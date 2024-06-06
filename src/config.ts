@@ -3,7 +3,7 @@ import { type NetworkConfig } from './types';
 
 export const config = {
   waitAfterToken: 5_000,
-  cronSchedule: '* */4 * * *', // every 4h
+  cronSchedule: '0 */12 * * *', // every 12h
   managedApp: true, // set to true to start a dummy server to satisfy platform requirements
 };
 
